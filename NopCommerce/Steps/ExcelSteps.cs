@@ -15,17 +15,25 @@ namespace NopCommerce.Steps
     [Binding]
     public class ExcelSteps
     {
-        ExcelPage excelPage = new ExcelPage();
-        DataReading data = new DataReading();
-        ShoppingCartPage cart = new ShoppingCartPage();
-       // DataTable table = data.readData("Sheet1", @"C:\Users\Norhan.Medhat\source\repos\Framework\NopCommerce\Data\Book1.xlsx");
+        ExcelPage excelPage;
+        DataReading data;
+        ShoppingCartPage cart;
+        DataTable table;
+
+        public ExcelSteps()
+        {
+            excelPage = new ExcelPage();
+            data = new DataReading();
+            cart = new ShoppingCartPage();
+            table = data.readData("Sheet1", @"C:\Users\Norhan.Medhat\source\repos\Framework\NopCommerce\Data\Book1.xlsx");
+        }
         [When(@"I added (.*) products in the cart")]
         public void WhenIAddedProductsInTheCart(int p0)
         {
             //FileStream stream = new FileStream(@"C:\Users\Norhan.Medhat\source\repos\Framework\NopCommerce\Data\Book1.xlsx", FileMode.Open, FileAccess.Read);
             //IExcelDataReader reader = ExcelReaderFactory.CreateOpenXmlReader(stream);
             //DataTable table = reader.AsDataSet().Tables["Sheet1"];
-           DataTable table= data.readData("Sheet1", @"C:\Users\Norhan.Medhat\source\repos\Framework\NopCommerce\Data\Book1.xlsx");
+         //  DataTable table= data.readData("Sheet1", @"C:\Users\Norhan.Medhat\source\repos\Framework\NopCommerce\Data\Book1.xlsx");
             for (int i = 1; i < table.Rows.Count; i++)//or till p0
             {
                 var col = table.Rows[i];
@@ -38,7 +46,7 @@ namespace NopCommerce.Steps
         [Then(@"I assert the image of the product in both pages using Excel sheet")]
         public void ThenIAssertTheImageOfTheProductInBothPagesUsingExcelSheet()
         {
-            DataTable table = data.readData("Sheet1", @"C:\Users\Norhan.Medhat\source\repos\Framework\NopCommerce\Data\Book1.xlsx");
+          //  DataTable table = data.readData("Sheet1", @"C:\Users\Norhan.Medhat\source\repos\Framework\NopCommerce\Data\Book1.xlsx");
             for(int i = 1; i < table.Rows.Count; i++)
             {
                 var col = table.Rows[i];
@@ -52,7 +60,7 @@ namespace NopCommerce.Steps
         [Then(@"I assert the name of the product using Excel sheet")]
         public void ThenIAssertTheNameOfTheProductUsingExcelSheet()
         {
-            DataTable table = data.readData("Sheet1", @"C:\Users\Norhan.Medhat\source\repos\Framework\NopCommerce\Data\Book1.xlsx");
+           // DataTable table = data.readData("Sheet1", @"C:\Users\Norhan.Medhat\source\repos\Framework\NopCommerce\Data\Book1.xlsx");
            for(int i=1; i < table.Rows.Count; i++)
             {
                 var col = table.Rows[i];
@@ -64,7 +72,7 @@ namespace NopCommerce.Steps
         [Then(@"I assert the price of the product according to quantity using Excel sheet")]
         public void ThenIAssertThePriceOfTheProductAccordingToQuantityUsingExcelSheet()
         {
-            DataTable table = data.readData("Sheet1", @"C:\Users\Norhan.Medhat\source\repos\Framework\NopCommerce\Data\Book1.xlsx");
+           // DataTable table = data.readData("Sheet1", @"C:\Users\Norhan.Medhat\source\repos\Framework\NopCommerce\Data\Book1.xlsx");
             for (int i = 1; i < table.Rows.Count; i++)
             {
                 var col = table.Rows[i];
@@ -78,7 +86,7 @@ namespace NopCommerce.Steps
         [Then(@"I assert the total price using Excel sheet")]
         public void ThenIAssertTheTotalPriceUsingExcelSheet()
         {
-            DataTable table = data.readData("Sheet1", @"C:\Users\Norhan.Medhat\source\repos\Framework\NopCommerce\Data\Book1.xlsx");
+           // DataTable table = data.readData("Sheet1", @"C:\Users\Norhan.Medhat\source\repos\Framework\NopCommerce\Data\Book1.xlsx");
             string totalPrice= table.Rows[1][5].ToString();
             cart.assertTotalPrice(totalPrice);
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EAEmployeeTest.Base;
+using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +13,10 @@ namespace NopCommerce.HelperActions
         public void contextClick()
         {
 
+        }
+        public static void click(By locator)
+        {
+            DriverContent.Driver.FindElement(locator).Click();
         }
     }
 }

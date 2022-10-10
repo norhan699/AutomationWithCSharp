@@ -18,28 +18,20 @@ namespace NopCommerce.Steps
     public sealed class AddItemToShoppingCard
     {
         HomePage home;
-        GiftCardPage card = new GiftCardPage();
+        GiftCardPage card;
         NavbarPage navbar;
-       /* private string url = "";
-        [Given(@"I had navigated to home page")]
-        public void GivenIHadNavigatedToHomePage()
+        IJavaScriptExecutor js;
+        public AddItemToShoppingCard()//El constructor hena bitnda m3 enna msh wa5den mno object 3lshan el feature file wl binding homa ele bindho el steps class
         {
-            DriverContent.Driver.Navigate().GoToUrl(url);
-        }*/
-
-       /* [Then(@"I scroll down to Featured products")]
-        public void ThenIScrollDownToFeaturedProducts()
-        {
-            //scroll till specific element
-            IJavaScriptExecutor js = (IJavaScriptExecutor)DriverContent.Driver;
-            js.ExecuteScript("arguments[0].scrollIntoView();", HomePage.FeaturedProductSection);
-           
-        }*/
+            home = new HomePage();
+            card = new GiftCardPage();
+            js = (IJavaScriptExecutor)DriverContent.Driver;
+        }
 
         [Then(@"Go through Gift cards")]
         public void ThenGoThroughGiftCards()
         {
-            home = new HomePage();
+           // home = new HomePage();
             home.clickOnGiftCardImg();
             
         }
@@ -76,8 +68,8 @@ namespace NopCommerce.Steps
         public void WhenYouScrollUp()
         {
             //scroll till the top of the page
-            IJavaScriptExecutor js = (IJavaScriptExecutor)DriverContent.Driver;
-            js.ExecuteScript("window.scrollTo(0, 0)");
+           // IJavaScriptExecutor js = (IJavaScriptExecutor)DriverContent.Driver;
+            js.ExecuteScript("window.scrollTo(0, 0)");//x & y coordinates
         }
 
         [When(@"hover over the shopping card")]
@@ -115,4 +107,18 @@ namespace NopCommerce.Steps
 //Scroll to the end of the page
 /*  IJavaScriptExecutor js = (IJavaScriptExecutor)DriverContent.Driver;
   js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight)");*/
+/* private string url = "";
+    [Given(@"I had navigated to home page")]
+    public void GivenIHadNavigatedToHomePage()
+    {
+        DriverContent.Driver.Navigate().GoToUrl(url);
+    }*/
 
+/* [Then(@"I scroll down to Featured products")]
+ public void ThenIScrollDownToFeaturedProducts()
+ {
+     //scroll till specific element
+     IJavaScriptExecutor js = (IJavaScriptExecutor)DriverContent.Driver;
+     js.ExecuteScript("arguments[0].scrollIntoView();", HomePage.FeaturedProductSection);
+    //                  x                                y coordinates
+ }*/

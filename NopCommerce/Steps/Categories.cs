@@ -30,12 +30,12 @@ namespace NopCommerce.Steps
         }
 
         [When(@"I click on (.*) Category")]
-        public void WhenIClickedOnDigitalDownloadsCategory(string categoryName)
+        public void WhenIClickedOnCategory(string categoryName)//WhenIClickedOnDigitalDownloadsCategory
         {
           category.selectCategory(categoryName);
         }
         [When(@"I select (.*) from the top menu")]
-        public void WhenISelectElectronicsCellPhonesFromTheTopMenu(string CatProd)
+        public void WhenISelectCatProdFromTheTopMenu(string CatProd)//WhenISelectElectronicsCellPhonesFromTheTopMenu
         {
             category.selectCategoryProduct(CatProd);//trim()
         }

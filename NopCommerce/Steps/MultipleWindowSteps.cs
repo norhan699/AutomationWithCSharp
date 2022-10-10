@@ -13,8 +13,14 @@ namespace NopCommerce.Steps
     [Binding]
     class MultipleWindowSteps
     {
-        IJavaScriptExecutor js = (IJavaScriptExecutor)DriverContent.Driver;
-        string test_url_2 = "https://demo.nopcommerce.com/";
+        IJavaScriptExecutor js ;
+        string test_url_2 ;
+        public MultipleWindowSteps()
+        {
+            js = (IJavaScriptExecutor)DriverContent.Driver;
+            test_url_2 = "https://demo.nopcommerce.com/";
+        }
+
         [When(@"The other window opens")]
         public void WhenTheOtherWindowOpens()
         {

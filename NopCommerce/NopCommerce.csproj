@@ -87,6 +87,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExcelReader\ReadKeywoards.cs" />
     <Compile Include="HelperActions\BrowserActions.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="ExcelReader\ExcelReader.cs" />
@@ -94,12 +95,15 @@
     <Compile Include="HelperActions\DriverActions.cs" />
     <Compile Include="HelperActions\MouseActions.cs" />
     <Compile Include="Hooks.cs" />
+    <Compile Include="KeyWoard\RunKeyWoardDataDriven.cs" />
     <Compile Include="Pages\ArrangementPage.cs" />
     <Compile Include="Pages\BuildYourOwnCompPage.cs" />
     <Compile Include="Pages\CategoriesPage.cs" />
+    <Compile Include="Pages\CompareListPage.cs" />
     <Compile Include="Pages\ExcelPage.cs" />
     <Compile Include="Pages\GiftCardPage.cs" />
     <Compile Include="Pages\HomePage.cs" />
+    <Compile Include="KeyWoard\KeywoardDataDrivenPage.cs" />
     <Compile Include="Pages\NavbarPage.cs" />
     <Compile Include="Pages\SearchPage.cs" />
     <Compile Include="Pages\ShoppingCartPage.cs" />
@@ -107,6 +111,7 @@
     <Compile Include="Steps\AddItemToShoppingCard.cs" />
     <Compile Include="Steps\BuildYourOwnComputer.cs" />
     <Compile Include="Steps\Categories.cs" />
+    <Compile Include="Steps\CompareListSteps.cs" />
     <Compile Include="Steps\ExcelSteps.cs" />
     <Compile Include="Steps\FeaturedProducts.cs" />
     <Compile Include="Steps\MultipleWindowSteps.cs" />
@@ -119,9 +124,13 @@
     <None Include="app.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Data\Book1.xlsx" />
+    <None Include="Data\KeyWoards.xlsx" />
     <None Include="Features\AddItemToShoppingCard.feature" />
     <None Include="Features\BuildYourOwnComputer.feature" />
     <None Include="Features\Categories.feature" />
+    <None Include="Features\CompareList.feature" />
+    <None Include="KeyWoard\KeyWoardDataDriven.feature" />
     <None Include="Features\Excel.feature" />
     <None Include="Features\FeaturedProducts.feature" />
     <None Include="Features\MultipleWindow.feature" />
@@ -130,9 +139,7 @@
     <None Include="Features\ShoppingCart.feature" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\EAEmployeeTest\EAEmployeeTest.csproj">
       <Project>{1C9DA9CF-2993-4316-BCCD-FE4EED21264B}</Project>

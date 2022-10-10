@@ -11,13 +11,23 @@ namespace NopCommerce.Pages
 {
     public class HomePage
     {
-        // public static IWebElement FeaturedProductSection => DriverContent.Driver.FindElement(By.XPath("//div[@class='product - grid home - page - product - grid']"));
-       // public static IWebElement FeaturedProductSection => DriverContent.Driver.FindElement(By.CssSelector("div[class='product - grid home - page - product - grid']"));
-        public static IWebElement FeaturedProductSection => DriverContent.Driver.FindElement(By.CssSelector("div.product-grid"));
-        public IWebElement GiftCardImg => DriverContent.Driver.FindElement(By.XPath("//div[@data-productid='43']//img"));
-        IWebElement YourOwnCompBtn => DriverContent.Driver.FindElement(By.XPath("//span[contains(text(),'$1,200.00')]/ancestor::div[@class='add-info']/div[@class='buttons']/button[@class='button-2 product-box-add-to-cart-button']"));
-        
-        public void clickOnGiftCardImg()
+        // public static IWebElement FeaturedProductSection => DriverContent.Driver.FindElement(By.CssSelector("div[class='product - grid home - page - product - grid']"));
+
+        //public static IWebElement FeaturedProductSection => DriverContent.Driver.FindElement(By.CssSelector("div.product-grid"));
+        //public IWebElement GiftCardImg => DriverContent.Driver.FindElement(By.XPath("//div[@data-productid='43']//img"));
+        //IWebElement YourOwnCompBtn => DriverContent.Driver.FindElement(By.XPath("//span[contains(text(),'$1,200.00')]/ancestor::div[@class='add-info']/div[@class='buttons']/button[@class='button-2 product-box-add-to-cart-button']"));
+        public static IWebElement FeaturedProductSection;
+        public IWebElement GiftCardImg;
+        IWebElement YourOwnCompBtn;
+
+        public HomePage()
+        {
+         FeaturedProductSection = DriverContent.Driver.FindElement(By.CssSelector("div.product-grid"));
+         GiftCardImg = DriverContent.Driver.FindElement(By.XPath("//div[@data-productid='43']//img"));
+         YourOwnCompBtn = DriverContent.Driver.FindElement(By.XPath("//span[contains(text(),'$1,200.00')]/ancestor::div[@class='add-info']/div[@class='buttons']/button[@class='button-2 product-box-add-to-cart-button']"));
+
+    }
+    public void clickOnGiftCardImg()
         {
             GiftCardImg.Click();
         }

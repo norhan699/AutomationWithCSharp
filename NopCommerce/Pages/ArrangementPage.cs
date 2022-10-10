@@ -61,10 +61,10 @@ namespace NopCommerce.Pages
         public void assertPrice()
         {
             DriverContent.driverWait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@class='details']")));//By.ClassName("page-body")
-            Thread.Sleep(200);
+            Thread.Sleep(2000);
             IList<string> price = DriverContent.Driver.FindElements(By.XPath("//span[@class='price actual-price']")).Select(x=> x.Text).ToList();
             char[] spearator = { '$' };
-            string previousPrice = price[0].Split(spearator).Select(x => x.Trim()).ToArray()[1];
+            string previousPrice = price[0].Split(spearator).Select(x => x.Trim()).ToArray()[1];//leh price[0] b 17 msh 37?
             for (int i = 1; i < price.Count; i++)
             {
                 string currentPrice = price[i].Split(spearator).Select(x => x.Trim()).ToArray()[1];
